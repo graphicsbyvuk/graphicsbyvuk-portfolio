@@ -1,0 +1,548 @@
+:root {
+    --background: #090909;
+    --text: #f3f2ed;
+    --muted: #777;
+    --line: #252525;
+    --accent: #d7ff00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    background: rgba(9, 9, 9, .82);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a,
+.contact-button,
+.label,
+.number,
+.hero-top,
+.hero-bottom,
+footer,
+.project-info p,
+.service span {
+    font-family: "DM Mono", monospace;
+}
+
+nav a {
+    color: #888;
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: .25s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.contact-button {
+    border: 1px solid #444;
+    padding: 12px 17px;
+    border-radius: 50px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.contact-button span {
+    color: var(--accent);
+    margin-left: 15px;
+}
+
+.contact-button:hover {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 5vw 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    margin-top: 12vh;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 13vw, 190px);
+    line-height: .78;
+    letter-spacing: -9px;
+    font-weight: 800;
+}
+
+.hero h1 i,
+h2 i {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 50px;
+}
+
+.hero-bottom p {
+    max-width: 410px;
+    color: #858585;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.explore {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    font-size: 10px;
+    color: #aaa;
+}
+
+.explore strong {
+    width: 43px;
+    height: 43px;
+    border: 1px solid #444;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 70px;
+}
+
+.section-heading > div {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.number,
+.label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+.section-heading h2,
+.about h2,
+.contact h2 {
+    font-size: clamp(55px, 8vw, 120px);
+    line-height: .82;
+    letter-spacing: -6px;
+    font-weight: 800;
+}
+
+
+/* SECTIONS */
+
+.work,
+.about,
+.services,
+.contact {
+    padding: 140px 5vw;
+    border-top: 1px solid var(--line);
+}
+
+
+/* PROJECT GALLERY */
+
+.projects {
+    display: grid;
+
+    /* DVE JEDNAKE KOLONE */
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px 25px;
+}
+
+
+/* NEMA VIŠE FULL-WIDTH RADOVA */
+
+.project {
+    min-width: 0;
+}
+
+.image-wrap {
+    overflow: hidden;
+    background: #111;
+    width: 100%;
+}
+
+
+/* SLIKA ZADRŽAVA SVOJ ODNOS STRANICA */
+
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+
+    transition:
+        transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.project:hover img {
+    transform: scale(1.025);
+}
+
+
+/* PROJECT INFO */
+
+.project-info {
+    display: grid;
+    grid-template-columns: 35px 1fr 25px;
+    gap: 10px;
+    padding-top: 17px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+.project-info h3 {
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    letter-spacing: -.3px;
+}
+
+.project-info p {
+    margin-top: 5px;
+    font-size: 9px;
+}
+
+.project-info > span:last-child {
+    color: var(--accent);
+    font-size: 16px;
+}
+
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 12vw;
+}
+
+.about-text {
+    padding-top: 15px;
+    max-width: 480px;
+    color: #777;
+    line-height: 1.7;
+}
+
+.about-text .large {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 35px;
+}
+
+.about-text p + p {
+    margin-top: 22px;
+}
+
+
+/* SERVICES */
+
+.service-list {
+    border-top: 1px solid var(--line);
+}
+
+.service {
+    min-height: 125px;
+
+    display: grid;
+    grid-template-columns: 60px 1.2fr 1fr 30px;
+
+    gap: 25px;
+    align-items: center;
+
+    border-bottom: 1px solid var(--line);
+
+    transition: .3s;
+}
+
+.service:hover {
+    padding-left: 20px;
+    background: #0e0e0e;
+}
+
+.service h3 {
+    font-size: clamp(19px, 2.2vw, 30px);
+}
+
+.service p {
+    color: #777;
+    font-size: 11px;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.service strong {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+
+/* CONTACT */
+
+.contact {
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact h2 {
+    margin: 45px 0 25px;
+}
+
+.contact > p {
+    color: #777;
+    margin-bottom: 45px;
+}
+
+.email {
+    width: fit-content;
+
+    font-size: clamp(22px, 4vw, 55px);
+
+    border-bottom: 1px solid #444;
+
+    padding-bottom: 10px;
+
+    letter-spacing: -2px;
+}
+
+.email span {
+    color: var(--accent);
+    margin-left: 25px;
+}
+
+.email:hover {
+    border-color: var(--accent);
+}
+
+.socials {
+    display: flex;
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.socials a {
+    font: 10px "DM Mono", monospace;
+    color: #777;
+}
+
+.socials a:hover {
+    color: var(--accent);
+}
+
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 25px 5vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #555;
+    font-size: 9px;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    header {
+        height: 70px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+        font-size: 20vw;
+        letter-spacing: -4px;
+    }
+
+    .hero-bottom {
+        display: block;
+    }
+
+    .explore {
+        margin-top: 30px;
+    }
+
+    .work,
+    .about,
+    .services,
+    .contact {
+        padding: 90px 5vw;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        margin-top: 30px;
+    }
+
+
+    /* TELEFON = JEDNA KOLONA */
+
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+
+    /* SLIKE I NA TELEFONU OSTAJU U ORIGINALNOM ODNOSU */
+
+    .project img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    .about-grid {
+        display: block;
+    }
+
+    .about-text {
+        margin-top: 50px;
+    }
+
+
+    .service {
+        grid-template-columns: 30px 1fr 20px;
+        min-height: 100px;
+    }
+
+    .service p {
+        display: none;
+    }
+
+    .socials {
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    footer {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .cursor {
+        display: none;
+    }
+}
